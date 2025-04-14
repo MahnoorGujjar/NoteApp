@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Notes App</title>
+    <link rel="stylesheet" href="notes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h1><i class="fas fa-book"></i> Notes</h1>
+            <button id="newNoteBtn"><i class="fas fa-plus"></i> New Note</button>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search notes...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="notes-list" id="notesList">
+                <!-- Notes will be loaded here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Main Editor -->
+        <div class="editor">
+            <div class="toolbar">
+                <button id="importantBtn" title="Mark as important"><i class="far fa-star"></i></button>
+                <button id="deleteBtn" title="Delete note"><i class="fas fa-trash"></i></button>
+                <button id="darkModeBtn" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
+            </div>
+            <input type="text" id="noteTitle" placeholder="Note Topic (press Enter to start writing)">
+            <div id="noteContent" contenteditable="true" placeholder="Write your note here..."></div>
+        </div>
+
+        <!-- Logout Button (right side) -->
+        <div class="logout-container">
+            <button id="logoutBtn" class="logout">Logout</button>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+   <script type="module" src="./app.js"></script>
+
+</body>
+</html>

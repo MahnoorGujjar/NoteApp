@@ -1,0 +1,259 @@
+body {
+    display: flex;
+    height: 100vh;
+    background-color: #f5f5f5;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 300px;
+    background: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    padding: 20px;
+    overflow-y: auto;
+    transition: background 0.3s;
+}
+
+.dark-mode .sidebar {
+    background: #1e1e1e;
+    border-right: 1px solid #333;
+}
+
+.sidebar h1 {
+    margin-bottom: 20px;
+    color: #6200ee;
+}
+
+#newNoteBtn {
+    width: 100%;
+    padding: 10px;
+    background: #6200ee;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background 0.2s;
+}
+
+#newNoteBtn:hover {
+    background: #7c4dff;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.dark-mode .search-box {
+    background: #333;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    padding: 5px;
+}
+
+.notes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-item {
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #f9f9f9;
+    transition: background 0.2s;
+}
+
+.dark-mode .note-item {
+    background: #2c2c2c;
+}
+
+.note-item:hover {
+    background: #e0e0e0;
+}
+
+.dark-mode .note-item:hover {
+    background: #444;
+}
+
+.note-item.important {
+    border-left: 3px solid #ffcc00;
+}
+
+.note-item h3 {
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dark-mode .note-item h3 {
+    color: #eee;
+}
+
+.note-item p {
+    color: #666;
+    font-size: 0.9rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dark-mode .note-item p {
+    color: #aaa;
+}
+
+.editor {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.toolbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.toolbar button {
+    background: #f5f5f5;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dark-mode .toolbar button {
+    background: #333;
+    color: #fff;
+}
+
+.toolbar button:hover {
+    background: #e0e0e0;
+}
+
+.dark-mode .toolbar button:hover {
+    background: #444;
+}
+
+#importantBtn .fas {
+    color: #ffcc00;
+}
+
+#noteTitle {
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    padding: 10px;
+    margin-bottom: 15px;
+    outline: none;
+    background: transparent;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.dark-mode #noteTitle {
+    border-bottom: 1px solid #333;
+    color: #fff;
+}
+
+#noteContent {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 16px;
+    line-height: 1.5;
+    background: transparent;
+    overflow-y: auto;
+}
+
+#noteContent:focus {
+    outline: none;
+}
+
+#noteContent p {
+    margin-bottom: 10px;
+}
+
+#noteContent:empty:before {
+    content: attr(placeholder);
+    color: gray;
+    display: block;
+}
+
+.dark-mode #noteContent:empty:before {
+    color: #666;
+}
+
+/* Logout Button Styling */
+.logout-container {
+    position: fixed;               /* Fix the logout button in place */
+    top: 20px;                     /* Space from the top of the page */
+    right: 20px;                   /* Space from the right edge of the page */
+    z-index: 1000;                 /* Ensure the button stays on top of other elements */
+}
+
+.logout {
+    padding: 10px 20px;            /* Size of the button */
+    background-color: #6200EE;     /* Purple color background to match the app's theme */
+    color: white;                  /* White text color */
+    border: none;                  /* Remove borders */
+    border-radius: 5px;            /* Rounded corners */
+    font-size: 16px;               /* Font size */
+    cursor: pointer;              /* Pointer cursor for clicking */
+    transition: background-color 0.3s ease;  /* Smooth background color transition */
+}
+
+.logout:hover {
+    background-color: #7c4dff;     /* Lighter purple on hover */
+}
+
+/* Dark mode styling for logout button */
+.dark-mode .logout {
+    background-color: #6200EE;     /* Same purple color for dark mode */
+}
+
+.dark-mode .logout:hover {
+    background-color: #7c4dff;     /* Same lighter purple on hover for dark mode */
+}
+
+/* Optional: Responsive adjustment for smaller screens */
+@media (max-width: 768px) {
+    .logout-container {
+        top: 15px;                 /* Slightly adjust top space for smaller screens */
+        right: 15px;               /* Slightly adjust right space */
+    }
+
+    .logout {
+        padding: 8px 16px;         /* Smaller padding for mobile view */
+        font-size: 14px;           /* Smaller font size on mobile */
+    }
+}
